@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HelpersService } from '../../services/helpers.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  private helperService = inject(HelpersService)
 
   name = "Fulano";
   showList = false;
@@ -18,6 +21,7 @@ export class HomeComponent {
     { id: 4, year: 2020, name: "Nivus" },]
 
   updateShowList(value: boolean) {
+    this.helperService.registerList(this.carList);
     this.showList = value;
   }
 }
