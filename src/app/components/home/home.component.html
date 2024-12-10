@@ -1,1 +1,13 @@
-<p>home works!</p>
+<p>home works {{ name }}!!!</p>
+
+<button [id]=name (click)="updateShowList(!showList)">Mostra Lista</button>
+
+@if(showList){
+    <br/>
+    <br/>
+    Carros Por Ano:
+    <br/>
+    @for(car of carList; track car.id){
+        <p>{{ car.year }} - {{ car.name }}</p>
+    }
+}
